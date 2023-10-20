@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter, Switch, Route,Routes } from 'react-router-dom';
+import { BrowserRouter,Route ,Router,Routes} from 'react-router-dom';
+
 import Navbar from './components/navbar/navbar';
 import Banner from './components/banner/banner';
 import Content from './components/content/content';
@@ -60,14 +61,16 @@ function App() {
 
     <BrowserRouter>
       <Navbar />
-      <Routes>
+      <Router>
+        <Routes>
         <Route exact path="/" component={Home} />
         <Route exact path="/news" component={News} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
         <Route exact path="/state" component={State} />
         <Route exact path="/toggle" component={Toggle} />
-      </Routes>
+        </Routes>
+      </Router>
     </BrowserRouter>
 
   );
