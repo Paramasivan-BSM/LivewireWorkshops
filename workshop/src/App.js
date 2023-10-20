@@ -1,30 +1,76 @@
+import './App.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter, Switch, Route,Routes } from 'react-router-dom';
+import Navbar from './components/navbar/navbar';
+import Banner from './components/banner/banner';
+import Content from './components/content/content';
+import Statecontain from './components/state/State';
+import Toggles from './components/toggle/toggle';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+const Home = () => (
+  <div className="site">
+    <title>Home Page</title>
+    <Banner />
+    <Content types="Home" />
+
+  </div>
+
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+const News = () => (
+  <div className="news">
+    <title>News Page</title>
+    <Banner />
+    <Content types="News" />
+  </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+const Contact = () => (
+  <div className="contact">
+    <title>Contact Page</title>
+    <Banner />
+    <Content types="Contact" />
+  </div>
+);
+
+const About = () => (
+  <div className="about">
+    <title>About Page</title>
+    <Banner />
+    <Content types="About" />
+  </div>
+);
+
+const State = () => (
+  <div className="state">
+    <title>State Function</title>
+    <Statecontain />
+  </div>
+);
+
+const Toggle = () => (
+  <div className="toggle">
+    <title>Task Page</title>
+    <Toggles />
+  </div>
+);
+
+function App() {
+  return (
+
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/news" component={News} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/state" component={State} />
+        <Route exact path="/toggle" component={Toggle} />
+      </Routes>
+    </BrowserRouter>
+
+  );
+}
+
+export default App;
